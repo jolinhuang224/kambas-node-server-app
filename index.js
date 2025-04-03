@@ -7,6 +7,8 @@ import session from "express-session";
 import "dotenv/config";
 import CourseRoutes from "./Kambas/Courses/routes.js";
 import ModuleRoutes from "./Kambas/Modules/routes.js";
+import AssignmentRoutes from "./Kambas/Assignments/routes.js";
+import EnrollmentRoutes from "./Kambas/Enrollments/routes.js";
 const app = express();
 app.use(
     cors({
@@ -34,6 +36,8 @@ app.use(
 UserRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
+AssignmentRoutes(app);
+EnrollmentRoutes(app);
 Lab5(app);
 Hello(app);
 app.listen(process.env.PORT || 4000);
