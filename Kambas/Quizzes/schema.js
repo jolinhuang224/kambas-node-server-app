@@ -1,17 +1,19 @@
 import mongoose from "mongoose";
 
-const schema = new mongoose.Schema(
+const quizSchema = new mongoose.Schema(
     {
         _id: String,
         title: { type: String, default: "New Quiz" },
         course: String,
-        availablity: String,
+        availability: String,
         duedate: String,
         points: Number,
         questioncount: Number,
-        score: Number,
+        taken: {type: Boolean, default: false},
+        score: {type: Number, default: 0},
+        published: {type: Boolean, default: false},
     },
     { collection: "quizzes" }
 );
 
-export default QuizSchema;
+export default quizSchema;
