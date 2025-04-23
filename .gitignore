@@ -1,12 +1,6 @@
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 package-lock.json
-.pnpm-debug.log*
 logs/
-*.log
-*.log.*
 dist/
 build/
 .cache/
@@ -14,7 +8,6 @@ build/
 out/
 tmp/
 temp/
-*.tsbuildinfo
 .vscode/
 .env
 .DS_Store
