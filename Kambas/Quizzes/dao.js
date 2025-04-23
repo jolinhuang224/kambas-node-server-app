@@ -21,3 +21,12 @@ export function updateQuiz(quizId, quizUpdates) {
 export function findQuiz(quizId) {
     return model.findById(quizId);
 }
+
+export function onPublish(quizId) {
+    return model.updateOne({ _id: quizId }, [
+        { $set: { published: { $not: "$published" } } }
+    ]);
+}
+export function findPublishedQuizzesForCourse(courseId) {
+    return model.find({ course: courseId, published: true });
+}

@@ -32,4 +32,17 @@ export default function QuizRoutes(app) {
     const quiz = await quizDao.findQuiz(quizId);
     res.json(quiz);
   });
+
+  app.patch("/api/quizzes/:quizId", async (req, res) => {
+    const { quizId } = req.params;
+    await quizDao.onPublish(quizId);
+    res.sendStatus(204);
+  });
+
+  app.get("/api/courses/:courseId/quizzes/published", async (req, res) => {
+    console.log("[API] Getting only published quizzes");
+    const { courseId } = req.params;
+    const quizzes = await quizDao.findPublishedQuizzesForCourse(courseId);
+    res.json(quizzes);
+  });
 }
