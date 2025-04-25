@@ -28,10 +28,11 @@ const quizSchema = new mongoose.Schema(
       {
         id: { type: String, required: true },
         question: { type: String, required: true },
-        answers: [{ type: String }], 
+        answers: [{ type: String }],
         correctAnswer: { type: String, required: true },
       },
     ],
+    default: [],
   },
   { collection: "quizzes" }
 );
