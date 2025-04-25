@@ -6,6 +6,7 @@ const quizSchema = new mongoose.Schema(
         title: { type: String, default: "New Quiz" },
         description : String,
         course: String,
+        quiztype: {type: String, default: "Graded Quiz"}, //change to enum
         assignmentgroup: {type: String, default: "Quizzes"}, //change to enum
         shuffle: {type: Boolean, default: true},
         timelimit: {type: Number, default: 20},
