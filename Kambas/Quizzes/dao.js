@@ -30,3 +30,10 @@ export function onPublish(quizId) {
 export function findPublishedQuizzesForCourse(courseId) {
     return model.find({ course: courseId, published: true });
 }
+
+export function updateQuestion(quizId, questionId, questionUpdates) {
+    return model.updateOne(
+        { _id: quizId, "questions.id": questionId },
+        { $set: { "questions.$": questionUpdates } }
+    );
+}

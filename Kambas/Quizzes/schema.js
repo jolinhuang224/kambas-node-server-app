@@ -26,10 +26,13 @@ const quizSchema = new mongoose.Schema(
     untildate: { type: String, required: false },
     questions: [
       {
-        id: { type: String, required: true },
+        _id: { type: String, required: true },
+        title: { type: String, required: true },
         question: { type: String, required: true },
-        answers: [{ type: String }],
+        answers: { type: [{ type: String }], default: [] },
         correctAnswer: { type: String, required: true },
+        points: { type: Number, default: 1 },
+        type: { type: String, default: "Multiple Choice" },
       },
     ],
     default: [],

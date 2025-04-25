@@ -45,4 +45,11 @@ export default function QuizRoutes(app) {
     const quizzes = await quizDao.findPublishedQuizzesForCourse(courseId);
     res.json(quizzes);
   });
+
+  app.put("/api/quizzes/:quizId/questions/:questionId", async (req, res) => {
+    const { quizId, questionId } = req.params;
+    const questionUpdates = req.body;
+    await quizDao.updateQuestion(quizId, questionId, questionUpdates);
+    res.sendStatus(204);
+  });
 }
